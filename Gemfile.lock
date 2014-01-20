@@ -1,0 +1,31 @@
+GIT
+  remote: git@github.com:prawnpdf/prawn.git
+  revision: 042529265ebd71dc1bd05c87167b35adcc18af1b
+  specs:
+    prawn (0.15.0)
+      pdf-reader (~> 1.2)
+      ruby-rc4
+      ttfunk (~> 1.0.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    Ascii85 (1.0.2)
+    afm (0.2.0)
+    hashery (2.1.1)
+    mustache (0.99.4)
+    pdf-reader (1.3.3)
+      Ascii85 (~> 1.0.0)
+      afm (~> 0.2.0)
+      hashery (~> 2.0)
+      ruby-rc4
+      ttfunk
+    ruby-rc4 (0.1.5)
+    ttfunk (1.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mustache
+  prawn!
