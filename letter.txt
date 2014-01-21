@@ -17,7 +17,7 @@ CERTIFIED PUBLIC ACCOUNTANTS
 {{/company_subtext}}
 
 {{#company_address}}
-24410 Rice Meadow • Suite A
+24410 Rice Meadow Road • Suite A
 New Haven, Connecticut 06512
 {{/company_address}}
 

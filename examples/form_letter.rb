@@ -32,29 +32,30 @@ formatting = {
 }
 
 document = DocumentBuilder.new
+letter   = FormLetter.new(document, params, formatting)
 
 document.update do
+  font "Helvetica"
+
   float do
     span(bounds.width/3, :position => :left) do
       move_down 0.75.in
-      text params[:from], formatting[:from]
+      letter.text(:from)
     end
   end
 
   float do
     span(bounds.width/3, :position => :center) do
-      formatted_text [{:text => params[:company]}.merge(formatting[:company]),
-                      {:text => params[:company_subtext]}.merge(formatting[:company_subtext])], 
-                      formatting[:company_header]
+      letter.text_group [:company, :company_subtext], :company_header
 
-      formatted_text [{:text => params[:company_address]}], formatting[:company_address] 
+      letter.text(:company_address)
     end
   end
 
   float do
     span(bounds.width/3, :position => :right) do
       move_down 0.75.in
-      text params[:contact], formatting[:contact]
+      letter.text(:contact)
     end
   end
 
@@ -63,8 +64,7 @@ document.update do
   move_down 2.in
 
   span(6.5.in, :position => :center) do
-    # NOTE: text file uses non-breaking space!
-    text CGI.unescapeHTML(params[:body]), formatting[:body]
+    letter.text(:body) # NOTE: nbsp in content
   end
 
   move_cursor_to 0.5.in
