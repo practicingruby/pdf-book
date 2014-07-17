@@ -14,8 +14,7 @@ parser.rewrite(:customer_name) do
   ["Gregory", "Brad", "James", "Daniel", "Jonathan" ].sample 
 end
 
-letter = File.read("fields.txt") + File.read("letter.txt")
-
+letter = File.read("fields.txt") + Text.unwrap(File.read("letter.txt"))
 params = parser.parse(letter)
 
 ## Set relevant formatting for different sections

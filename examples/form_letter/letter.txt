@@ -1,18 +1,31 @@
 ::body
+
 :date:
 
 Dear :customer_name:,
 
-It's that time of year again and in order to assist you in gathering the necessary records needed to prepare your 2013 tax returns, we have compiled the enclosed checklist for you to complete.
+It's that time of year again and in order to assist you in gathering the
+necessary records needed to prepare your 2013 tax returns, we have compiled the
+enclosed checklist for you to complete.
 
-Just a reminder, your 2013 returns must be electronically filed as required by the Internal Revenue Service. Also, our fee is expected to be paid at the time your tax return is completed. <strong>Fee must be paid before return is filed. For your convenience, we accept credit cards.</strong>
+Just a reminder, your 2013 returns must be electronically filed as required by
+the Internal Revenue Service. Also, our fee is expected to be paid at the time
+your tax return is completed. <strong>Fee must be paid before return is filed.
+For your convenience, we accept credit cards.</strong>
 
-If you receive a refund we recommend that you have it direct deposited. This results in a quicker and dafer way to receive your refund. Please complete and return the enclosed information and return it to us when you send in your tax information.
+If you receive a refund we recommend that you have it direct deposited. This
+results in a quicker and dafer way to receive your refund. Please complete and
+return the enclosed information and return it to us when you send in your tax
+information.
 
-When you send in your information, also give us your email address if you have one so that we may contact you should we need any additional information. Also, please let us know if you would like to pick up your return when it is completed or if you would like it mailed to you.
+When you send in your information, also give us your email address if you have
+one so that we may contact you should we need any additional information. Also,
+please let us know if you would like to pick up your return when it is completed
+or if you would like it mailed to you.
 
-Please send in your information before :deadline:. If we receive your information after that date, there is no guarantee that your returns will be processed by the tax filing deadline and an extension will be filed for you.
-
+Please send in your information before :deadline:. If we receive your
+information after that date, there is no guarantee that your returns will be
+processed by the tax filing deadline and an extension will be filed for you.
 
 If you have any questions, please do not heasitate to give us a call, or email us at:
 
