@@ -5,15 +5,18 @@ require_relative "helper"
 parser = FormLetter::Parser.new
 
 parser.rewrite(:emails, :deadline) 
-parser.rewrite(:date) { Date.today.strftime("%b %d, %Y") }
 
-# this would come from a database or other source,
-# but you get the idea
+parser.rewrite(:date) do 
+  Date.today.strftime("%b %d, %Y")
+end
+
 parser.rewrite(:customer_name) do
   ["Gregory", "Brad", "James", "Daniel", "Jonathan" ].sample 
 end
 
-params = parser.parse(File.read("letter.txt"))
+letter = File.read("fields.txt") + File.read("letter.txt")
+
+params = parser.parse(letter)
 
 ## Set relevant formatting for different sections
 
@@ -55,9 +58,7 @@ letter.update do
 
   move_down 2.in
 
-  body do
-    letter.text(:body) # NOTE: nbsp in content
-  end
+  body { letter.text(:body) }
 
   move_cursor_to 0.5.in
 

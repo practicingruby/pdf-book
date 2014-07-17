@@ -1,0 +1,29 @@
+::from
+Enrico O'Keefe
+Florine Grant
+
+::contact
+Phone: 203-555-1234
+Fax: 203-555-4321
+
+::company
+O'KEEFE AND GRANT, P.C.
+
+::company_subtext
+CERTIFIED PUBLIC ACCOUNTANTS
+
+::company_address
+24410 Rice Meadow Road • Suite A
+New Haven, Connecticut 06512
+
+::deadline
+March 31, 2014
+
+::emails
+        <u>enrico@okgracpas.com</u>
+        <u>florine@okgracpas.com</u>
+
+::footer
+Members:
+American Institute of Certified Public Accountants
+Connecticut Society of Certified Public Accountants

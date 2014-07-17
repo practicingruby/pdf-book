@@ -1,39 +1,9 @@
-::from
-Enrico O'Keefe
-Florine Grant
-
-::contact
-Phone: 203-555-1234
-Fax: 203-555-4321
-
-::company
-O'KEEFE AND GRANT, P.C.
-
-::company_subtext
-CERTIFIED PUBLIC ACCOUNTANTS
-
-::company_address
-24410 Rice Meadow Road • Suite A
-New Haven, Connecticut 06512
-
-::deadline
-March 31, 2014
-
-::emails
-        <u>enrico@okgracpas.com</u>
-        <u>florine@okgracpas.com</u>
-
-::footer
-Members:
-American Institute of Certified Public Accountants
-Connecticut Society of Certified Public Accountants
-
 ::body
 :date:
 
 Dear :customer_name:,
 
-It's that time of year again and in order to assist you in gathering the necessary records needed to prepare your 2013 tax returns, we have compiled the enclosed cheklist for you to complete.
+It's that time of year again and in order to assist you in gathering the necessary records needed to prepare your 2013 tax returns, we have compiled the enclosed checklist for you to complete.
 
 Just a reminder, your 2013 returns must be electronically filed as required by the Internal Revenue Service. Also, our fee is expected to be paid at the time your tax return is completed. <strong>Fee must be paid before return is filed. For your convenience, we accept credit cards.</strong>
 

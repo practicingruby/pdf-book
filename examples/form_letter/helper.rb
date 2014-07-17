@@ -7,32 +7,33 @@ require "prawn/measurement_extensions"
 
 Prawn.debug = true
 
-module PrawnDSL
-  def document
-    @document ||= Prawn::Document.new
-  end
+module Prawn
+  module DSL
+    def document
+      @document ||= Prawn::Document.new
+    end
 
-  def method_missing(m, *a, &b)
-    document.send(m, *a, &b)
-  end
+    def method_missing(m, *a, &b)
+      document.send(m, *a, &b)
+    end
 
-  def update(&b)
-    instance_eval(&b)
-  end
+    def update(&b)
+      instance_eval(&b)
+    end
 
-  def save_as(filename)
-    document.render_file(filename)
+    def save_as(filename)
+      document.render_file(filename)
+    end
   end
 end
 
 class FormLetter
-  include PrawnDSL
+  include Prawn::DSL
    
   def initialize(params, styles)
     @params   = params
     @styles   = styles
   end
-
 
   def text(content_key)
     document.text(@params[content_key].strip + "\n",
@@ -86,7 +87,6 @@ class FormLetter::Parser
     section         = nil
 
     text.lines.each do |e| 
-      
       if e[/^::(.*)/, 1]
         section = $1
       elsif section

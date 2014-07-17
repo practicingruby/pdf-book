@@ -9,7 +9,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    mustache (0.99.5)
     pdf-core (0.2.5)
     ttfunk (1.2.0)
 
@@ -17,5 +16,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mustache
   prawn!
