@@ -10,6 +10,10 @@ parser.rewrite(:date) do
   Date.today.strftime("%b %d, %Y")
 end
 
+parser.rewrite(:year) do
+  (Date.today.year - 1).to_s
+end
+
 parser.rewrite(:customer_name) do
   ["Gregory", "Brad", "James", "Daniel", "Jonathan" ].sample 
 end

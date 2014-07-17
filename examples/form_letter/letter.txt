@@ -5,10 +5,10 @@
 Dear :customer_name:,
 
 It's that time of year again and in order to assist you in gathering the
-necessary records needed to prepare your 2013 tax returns, we have compiled the
+necessary records needed to prepare your :year: tax returns, we have compiled the
 enclosed checklist for you to complete.
 
-Just a reminder, your 2013 returns must be electronically filed as required by
+Just a reminder, your :year: returns must be electronically filed as required by
 the Internal Revenue Service. Also, our fee is expected to be paid at the time
 your tax return is completed. <strong>Fee must be paid before return is filed.
 For your convenience, we accept credit cards.</strong>
