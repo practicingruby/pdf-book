@@ -1,35 +1,37 @@
-{{#from}}
+::from
 Enrico O'Keefe
 Florine Grant
-{{/from}}
 
-{{#contact}}
+::contact
 Phone: 203-555-1234
 Fax: 203-555-4321
-{{/contact}}
 
-{{#company}}
+::company
 O'KEEFE AND GRANT, P.C.
-{{/company}}
 
-{{#company_subtext}}
+::company_subtext
 CERTIFIED PUBLIC ACCOUNTANTS
-{{/company_subtext}}
 
-{{#company_address}}
+::company_address
 24410 Rice Meadow Road • Suite A
 New Haven, Connecticut 06512
-{{/company_address}}
 
-{{#emails}}
+::deadline
+March 31, 2014
+
+::emails
         <u>enrico@okgracpas.com</u>
         <u>florine@okgracpas.com</u>
-{{/emails}}
 
-{{#body}}
-{{date}}
+::footer
+Members:
+American Institute of Certified Public Accountants
+Connecticut Society of Certified Public Accountants
 
-Dear Valued Client:
+::body
+:date:
+
+Dear :customer_name:,
 
 It's that time of year again and in order to assist you in gathering the necessary records needed to prepare your 2013 tax returns, we have compiled the enclosed cheklist for you to complete.
 
@@ -39,21 +41,14 @@ If you receive a refund we recommend that you have it direct deposited. This res
 
 When you send in your information, also give us your email address if you have one so that we may contact you should we need any additional information. Also, please let us know if you would like to pick up your return when it is completed or if you would like it mailed to you.
 
-Please send in your information before March 31, 2013. If we receive your information after that date, there is no guarantee that your returns will be processed by the tax filing deadline and an extension will be filed for you.
+Please send in your information before :deadline:. If we receive your information after that date, there is no guarantee that your returns will be processed by the tax filing deadline and an extension will be filed for you.
 
 
 If you have any questions, please do not heasitate to give us a call, or email us at:
 
-{{emails}}
+:emails:
 
 Sincerely,
 
 O'KEEFE AND GRANT, P.C.
 Certified Public Accountants
-{{/body}}
-
-{{#footer}}
-Members:
-American Institute of Certified Public Accountants
-Connecticut Society of Certified Public Accountants
-{{/footer}}
