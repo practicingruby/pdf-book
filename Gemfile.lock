@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/prawnpdf/prawn.git
-  revision: d97c1c59899742d935eb6ebe5b1745163e862689
+  revision: b04d33a0f061913135890627405cb9022b18b33e
+  branch: extract_tables
   specs:
     prawn (1.2.0)
       pdf-core (~> 0.2.5)
@@ -10,6 +11,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     pdf-core (0.2.5)
+    prawn-table (0.0.3)
     ttfunk (1.2.0)
 
 PLATFORMS
@@ -17,3 +19,4 @@ PLATFORMS
 
 DEPENDENCIES
   prawn!
+  prawn-table
