@@ -1,7 +1,7 @@
 require_relative "../helper"
 
 class FormLetter
-  include Prawn::DSL
+  include Prawn::View
    
   def initialize(params, styles)
     @params   = params

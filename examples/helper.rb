@@ -14,7 +14,7 @@ class Text
 end
 
 module Prawn
-  module DSL
+  module View
     def document
       @document ||= Prawn::Document.new
     end
