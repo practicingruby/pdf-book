@@ -10,19 +10,39 @@ class UtilityBill
   include Prawn::View
 
   def initialize(data1, data2)
-    font_size 10
+    font_size 8
 
-    table data1 do |t|
-      apply_charge_styling(t, data1.size)
+    define_grid(:columns => 12, :rows => 2)
+    grid.show_all
 
-      # consists of a single cell
-      t.row(0).style(:borders => [:left, :top, :right])
+    grid([1,0],[1,7]).bounding_box do
+      table data1 do |t|
+        apply_charge_styling(t, data1.size)
+
+        # consists of a single cell
+        t.row(0).style(:borders => [:left, :top, :right])
+      end
+
+      move_down 10
+
+      table(data2) do |t|
+        apply_charge_styling(t, data2.size)
+      end
     end
 
-    move_down 20
+    grid([0,7], [0,11]).bounding_box do
+      table [["Payment Due Date", "Amount Now Due"],
+             ["7/04/14", "$ 110.00"]] do |t|
 
-    table(data2) do |t|
-      apply_charge_styling(t, data2.size)
+        t.row(0).style(:background_color => "CCCCCC", :text_color => "666666", :size => 12, :font_style => :bold)
+        t.cells[1,0].style(:size => 14)
+        t.cells[1,1].style(:size => 16, :align => :right)
+      end
+    end
+
+    grid([1,9],[1,11]).bounding_box do
+      image "delivery.jpg",  :width => bounds.width
+      image "generation.jpg",:width => bounds.width 
     end
   end
 
@@ -30,10 +50,10 @@ class UtilityBill
 
   def apply_charge_styling(t, size)
     t.instance_eval do
-      column(0).style(:borders => [:left],  :width => 200)
-      column(1).style(:borders => [],       :width => 150)
-      column(2).style(:borders => [],       :width => 50)
-      column(3).style(:borders => [:right], :width => 100, :align => :right)
+      column(0).style(:borders => [:left],  :width => 160)
+      column(1).style(:borders => [],       :width => 120)
+      column(2).style(:borders => [],       :width => 40)
+      column(3).style(:borders => [:right], :width => 40, :align => :right)
       
       row(0).style { |c| c.borders += [:top] }
 
