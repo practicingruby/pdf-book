@@ -13,7 +13,7 @@ class UtilityBill
     font_size 8
 
     define_grid(:columns => 12, :rows => 2)
-    grid.show_all
+    #grid.show_all
 
     grid([1,0],[1,7]).bounding_box do
       table data1 do |t|
@@ -30,13 +30,27 @@ class UtilityBill
       end
     end
 
+    grid([0,0], [0,3]).bounding_box do
+      text "FBL/C", :size => 54, :leading => -15, :color => "ff6666"
+      text "The Flying Blinky Lights Company", :style => :italic, :size => 10,
+                                               :color => "999999" 
+    end
+
+    grid([0,4],[0,6]).bounding_box do
+      table([["Account Number"], ["012-0000345-6789"]], :width => bounds.width - 5) do |t|
+        t.row(0).style(:background_color => "CCCCCC", :text_color => "666666", :size => 12, :font_style => :bold)
+        t.cells[1,0].style(:size => 14, :height => 25)
+      end
+
+    end
+
     grid([0,7], [0,11]).bounding_box do
       table [["Payment Due Date", "Amount Now Due"],
              ["7/04/14", "$ 110.00"]] do |t|
 
         t.row(0).style(:background_color => "CCCCCC", :text_color => "666666", :size => 12, :font_style => :bold)
-        t.cells[1,0].style(:size => 14)
-        t.cells[1,1].style(:size => 16, :align => :right)
+        t.cells[1,0].style(:size => 14, :height => 25)
+        t.cells[1,1].style(:size => 16, :align => :right, :height => 25)
       end
     end
 
