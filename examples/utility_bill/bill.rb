@@ -12,10 +12,35 @@ class UtilityBill
   def initialize(data1, data2)
     font_size 8
 
-    define_grid(:columns => 12, :rows => 2)
+    define_grid(:columns => 12, :rows => 3)
     #grid.show_all
 
-    grid([1,0],[1,7]).bounding_box do
+    grid([1,0],[2,7]).bounding_box do
+      float do
+        text "Your Account Information"
+        formatted_text [{:text => "Customer Name Key:  ", :styles => [:italic]},
+                        {:text => "WU", :styles => [:bold]}]
+        text "Mike Johnson"
+        text "123 Any Street"
+        text "Any Town, Connecticut, 00000"
+      end
+
+      indent(100) do
+        move_up font.line_gap # this is a hack, because by default Prawn inserts 
+                              # a line_gap space at the top of table cells.
+                              # There is a ticket that complains about it.
+        table [["Account Number:", "0100000-000"],["Meter Number:","00020003"],
+        ["Trans and Dist Rate:","R - Residential"],["Generation Rate:","Standard Service"],
+        ["Billing Period:","5/6/14 - 6/04/14"],["Statement Date:","6/06/14"],
+        ["Next Meter Reading (on or about):","7/07/14"]] do |t|
+          t.cells.style(:borders => [], :padding_bottom => 0.5, :padding_top => 0)
+          t.column(0).style(:align => :right)
+          t.column(1).style(:align => :left)
+        end
+      end
+
+      move_down 10
+
       table data1 do |t|
         apply_charge_styling(t, data1.size)
 
@@ -52,9 +77,19 @@ class UtilityBill
         t.cells[1,0].style(:size => 14, :height => 25)
         t.cells[1,1].style(:size => 16, :align => :right, :height => 25)
       end
+
+      move_down 5
+
+      text "Please make your check payable to:", :color => "666666", :size => 12, :style => :italic
+      text "The Flying Blinky Lights Company.", :color => "666666", :size => 13, :style => :bold
+
+      table [["Please Indicate Amount Paid",""]] do |t|
+        t.cells[0,0].style(:background_color => "CCCCCC", :text_color => "666666", :size => 12, :font_style => :bold)
+        t.cells[0,1].style(:width => 50)
+      end
     end
 
-    grid([1,9],[1,11]).bounding_box do
+    grid([1,9],[2,11]).bounding_box do
       image "delivery.jpg",  :width => bounds.width
       image "generation.jpg",:width => bounds.width 
     end
@@ -64,6 +99,8 @@ class UtilityBill
 
   def apply_charge_styling(t, size)
     t.instance_eval do
+      cells.style(:padding_top => 0, :padding_bottom => 1)
+
       column(0).style(:borders => [:left],  :width => 160)
       column(1).style(:borders => [],       :width => 120)
       column(2).style(:borders => [],       :width => 40)

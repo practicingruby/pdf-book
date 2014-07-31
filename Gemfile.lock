@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/prawnpdf/prawn.git
-  revision: 8ce3eaaaa1b81d28acee8dd267b0404d16f0c527
+  revision: 06dec835b9fe4204267f234e0011f29805eb5ebf
   branch: view
   specs:
     prawn (1.3.0)
