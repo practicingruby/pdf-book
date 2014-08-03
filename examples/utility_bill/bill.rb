@@ -61,6 +61,19 @@ class UtilityBill
                                                :color => "999999" 
     end
 
+    grid([0,0], [0,7]).bounding_box do
+      move_down 100
+      text "001111 000011111"
+      text "Mike Johnson\n123 Any Street\nAny Town, Connecticut, 00000", 
+           :size => 11
+    end
+
+    grid([0,0], [0,11]).bounding_box do
+      move_down 220
+      text "Please consider adding $1 for Operation Fuel to your payment this month or call 1-800-000-0000 to donate move than $1",
+      :style => :bold
+    end
+
     grid([0,4],[0,6]).bounding_box do
       table([["Account Number"], ["012-0000345-6789"]], :width => bounds.width - 5) do |t|
         t.row(0).style(:background_color => "CCCCCC", :text_color => "666666", :size => 12, :font_style => :bold)
@@ -89,9 +102,35 @@ class UtilityBill
       end
     end
 
-    grid([1,9],[2,11]).bounding_box do
-      image "delivery.jpg",  :width => bounds.width
-      image "generation.jpg",:width => bounds.width 
+    grid([0,7], [0,11]).bounding_box do
+      move_down 150
+      text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, MA, 00000", :size => 11
+    end
+
+    grid([1,9],[1,11]).bounding_box do
+      stroke_rectangle bounds.top_left, bounds.width, bounds.height - 10 
+
+      bounding_box([bounds.left+5, bounds.top-5], :width => bounds.width-10) do
+      text "MESSAGES", :size => 15, :align => :center
+      text "Your electric supplier is :", :style => :bold
+      text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, CT, 00000-0000" +
+      "1-800-000-0000\nwww.aaaaa.com\n\n" +
+      "Have a question for us?\nClick on Customer Care on\nOur website at www.aaaaa.com\n\n" +
+      "No stampls. no checks, no fees! Enroll now to receive and pay your bill on the internet (www.aaaaa.com).\n\n" +
+      "MONTHLY MONEY-SAVER" +
+      "During hot summer months, close drapes to help keep our "+
+      "unwanted heat and reduce your air conditioning costs. "+
+      "Use ceiling or portable fans instead of room air "+
+      "conditioners where possible.", :size => 7
+      end
+    end
+
+    grid([2,9],[2,11]).bounding_box do
+
+
+      image "delivery.jpg",  :height => bounds.height/2
+      image "generation.jpg",:height => bounds.height/2
+      stroke_bounds
     end
   end
 
