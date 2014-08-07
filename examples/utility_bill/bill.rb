@@ -2,6 +2,8 @@ require_relative "helper"
 
 Prawn.debug = true
 
+# FIXME: Normalize data! Should reflect 8/5/14 bill for 165.36
+
 # FIXME: Might be nice to support row(:first), row(:last)
 #                                 column(:first), column(:last)
 # And/or negative indexing, e.g. row(-1).
@@ -15,14 +17,14 @@ class UtilityBill
     define_grid(:columns => 12, :rows => 3)
     #grid.show_all
 
-    grid([1,0],[2,7]).bounding_box do
+    grid([1,0],[2,8]).bounding_box do
       float do
         text "Your Account Information"
         formatted_text [{:text => "Customer Name Key:  ", :styles => [:italic]},
-                        {:text => "WU", :styles => [:bold]}]
+                        {:text => "JOHNSON", :styles => [:bold]}]
         text "Mike Johnson"
         text "123 Any Street"
-        text "Any Town, Connecticut, 00000"
+        text "Any Town, USA, 00000"
       end
 
       indent(100) do
@@ -64,14 +66,18 @@ class UtilityBill
     grid([0,0], [0,7]).bounding_box do
       move_down 100
       text "001111 000011111"
-      text "Mike Johnson\n123 Any Street\nAny Town, Connecticut, 00000", 
+      text "Mike Johnson\n123 Any Street\nAny Town, USA, 00000", 
            :size => 11
     end
 
     grid([0,0], [0,11]).bounding_box do
       move_down 220
-      text "Please consider adding $1 for Operation Fuel to your payment this month or call 1-800-000-0000 to donate move than $1",
+      text "Please consider adding $1 for Fancy Charity to your payment this month or call 1-800-000-0000 to donate move than $1",
       :style => :bold
+      move_down 3
+      dash 10, :space => 4
+      stroke_horizontal_rule
+      undash
     end
 
     grid([0,4],[0,6]).bounding_box do
@@ -108,42 +114,46 @@ class UtilityBill
     end
 
     grid([1,9],[1,11]).bounding_box do
-      stroke_rectangle bounds.top_left, bounds.width, bounds.height - 10 
+      indent(10) do
+        stroke_rectangle bounds.top_left, bounds.width, bounds.height - 10 
 
-      bounding_box([bounds.left+5, bounds.top-5], :width => bounds.width-10) do
-      text "MESSAGES", :size => 15, :align => :center
-      text "Your electric supplier is :", :style => :bold
-      text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, CT, 00000-0000" +
-      "1-800-000-0000\nwww.aaaaa.com\n\n" +
-      "Have a question for us?\nClick on Customer Care on\nOur website at www.aaaaa.com\n\n" +
-      "No stampls. no checks, no fees! Enroll now to receive and pay your bill on the internet (www.aaaaa.com).\n\n" +
-      "MONTHLY MONEY-SAVER" +
-      "During hot summer months, close drapes to help keep our "+
-      "unwanted heat and reduce your air conditioning costs. "+
-      "Use ceiling or portable fans instead of room air "+
-      "conditioners where possible.", :size => 7
+        bounding_box([bounds.left+5, bounds.top-5], :width => bounds.width-10) do
+        text "MESSAGES", :size => 15, :align => :center
+        text "Your electric supplier is :", :style => :bold
+        text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, CT, 00000-0000" +
+        "1-800-000-0000\nwww.aaaaa.com\n\n" +
+        "Have a question for us?\nClick on Customer Care on\nOur website at www.aaaaa.com\n\n" +
+        "No stampls. no checks, no fees! Enroll now to receive and pay your bill on the internet (www.aaaaa.com).\n\n" +
+        "MONTHLY MONEY-SAVER" +
+        "During hot summer months, close drapes to help keep our "+
+        "unwanted heat and reduce your air conditioning costs. "+
+        "Use ceiling or portable fans instead of room air "+
+        "conditioners where possible.", :size => 7
+        end
       end
     end
 
     grid([2,9],[2,11]).bounding_box do
-
-
-      image "delivery.jpg",  :height => bounds.height/2
-      image "generation.jpg",:height => bounds.height/2
-      stroke_bounds
+      indent(10) do
+        image "delivery.jpg",  :height => bounds.height/2
+        image "generation.jpg",:height => bounds.height/2
+        stroke_bounds
+      end
     end
   end
 
   private
 
   def apply_charge_styling(t, size)
+    width = bounds.width
+
     t.instance_eval do
       cells.style(:padding_top => 0, :padding_bottom => 1)
 
-      column(0).style(:borders => [:left],  :width => 160)
-      column(1).style(:borders => [],       :width => 120)
-      column(2).style(:borders => [],       :width => 40)
-      column(3).style(:borders => [:right], :width => 40, :align => :right)
+      column(0).style(:borders => [:left],  :width => width*0.4)
+      column(1).style(:borders => [],       :width => width*0.3)
+      column(2).style(:borders => [],       :width => width*0.15)
+      column(3).style(:borders => [:right], :width => width*0.15, :align => :right)
       
       row(0).style { |c| c.borders += [:top] }
 
