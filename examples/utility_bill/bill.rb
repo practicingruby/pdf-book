@@ -7,6 +7,9 @@ Prawn.debug = true
 # FIXME: Might be nice to support row(:first), row(:last)
 #                                 column(:first), column(:last)
 # And/or negative indexing, e.g. row(-1).
+#
+# FIXME: Allow all dynamic fields (names, dates, numbers etc.) to be
+# set dynamically.
 
 class UtilityBill
   include Prawn::View
@@ -17,7 +20,7 @@ class UtilityBill
     define_grid(:columns => 12, :rows => 3)
     #grid.show_all
 
-    grid([1,0],[2,8]).bounding_box do
+    grid([1,0],[1,8]).bounding_box do
       float do
         text "Your Account Information"
         formatted_text [{:text => "Customer Name Key:  ", :styles => [:italic]},
@@ -54,6 +57,14 @@ class UtilityBill
 
       table(data2) do |t|
         apply_charge_styling(t, data2.size)
+      end
+
+      move_down 5
+
+      table [["Total New Charges", "$", "165.36"]] do
+        cells.style(:borders => [], :font_style => :bold)
+        column(0).width = 284
+        column(1).width = 87
       end
     end
 
@@ -93,7 +104,7 @@ class UtilityBill
              ["7/04/14", "$ 110.00"]] do |t|
 
         t.row(0).style(:background_color => "CCCCCC", :text_color => "666666", :size => 12, :font_style => :bold)
-        t.cells[1,0].style(:size => 14, :height => 25)
+        t.cells[1,0].style(:size => 14, :height => 25, :align => :center)
         t.cells[1,1].style(:size => 16, :align => :right, :height => 25)
       end
 
@@ -120,7 +131,7 @@ class UtilityBill
         bounding_box([bounds.left+5, bounds.top-5], :width => bounds.width-10) do
         text "MESSAGES", :size => 15, :align => :center
         text "Your electric supplier is :", :style => :bold
-        text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, CT, 00000-0000" +
+        text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, USA, 00000-0000" +
         "1-800-000-0000\nwww.aaaaa.com\n\n" +
         "Have a question for us?\nClick on Customer Care on\nOur website at www.aaaaa.com\n\n" +
         "No stampls. no checks, no fees! Enroll now to receive and pay your bill on the internet (www.aaaaa.com).\n\n" +
@@ -139,6 +150,37 @@ class UtilityBill
         image "generation.jpg",:height => bounds.height/2
         stroke_bounds
       end
+    end
+
+    grid([2,0],[2,8]).bounding_box do
+      table [["Amount Now Due: $", "165.36"]], :position => :right do |t|
+        t.column(0).style(:borders => [:top, :left, :bottom],)
+        t.column(1).style(:borders => [:top, :right, :bottom], :width => 106, :align => :right)
+        t.cells.style(:size => 9, :font_style => :bold)
+      end
+
+      move_down 10
+
+
+      formatted_text [{ :text => "One or more components have changed pricing this month, "+
+           "pricing may not print for that component.\n\n" +
+           "All charges are due as of your Statement Date. Any unpaid charges will be "+
+           "subject to interest as of your Statement Date, at the rate of 1.25% per month, "+
+           "if not paid on or before ", :styles => [:italic] }, 
+           { :text => "August 5, 2014. ", :styles => [:bold] },
+           { :text => "Making your payment on the Due Date at an authorized payment agent "+
+            "may not post until the following business day. If you have a question "+
+            "contact FBL/C. As authorized by law, for residential accounts, we "+
+            "supply payment information to credit rating agencies. If your account is "+
+            "more than sixty days delinquent, a delinquency report could harm your credit rating.",
+            :styles => [:italic] }]
+
+      move_down 20
+
+      text "Electricity Usage:"
+
+      table [["Meter", "Service Period", "Last Meter Reading", "Current Meter Reading", "Multiplier", "Kilowatt hours"],
+             ["012345678", "32 days", "78548", "79301", "1", "753 kWh"]]
     end
   end
 
