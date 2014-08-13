@@ -30,7 +30,7 @@ class UtilityBill
         text "Any Town, USA 00000"
       end
 
-      indent(100) do
+      indent(120) do
         move_up font.line_gap # this is a hack, because by default Prawn inserts 
                               # a line_gap space at the top of table cells.
                               # There is a ticket that complains about it.
