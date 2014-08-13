@@ -27,7 +27,7 @@ class UtilityBill
                         {:text => "JOHNSON", :styles => [:bold]}]
         text "Mike Johnson"
         text "123 Any Street"
-        text "Any Town, USA, 00000"
+        text "Any Town, USA 00000"
       end
 
       indent(100) do
@@ -69,7 +69,7 @@ class UtilityBill
     end
 
     grid([0,0], [0,3]).bounding_box do
-      text "FBL/C", :size => 54, :leading => -15, :color => "ff6666"
+      text "FBL/C", :size => 48, :leading => -15, :color => "ff6666"
       text "The Flying Blinky Lights Company", :style => :italic, :size => 10,
                                                :color => "999999" 
     end
@@ -77,7 +77,7 @@ class UtilityBill
     grid([0,0], [0,7]).bounding_box do
       move_down 100
       text "001111 000011111"
-      text "Mike Johnson\n123 Any Street\nAny Town, USA, 00000", 
+      text "Mike Johnson\n123 Any Street\nAny Town, USA 00000", 
            :size => 11
     end
 
@@ -121,7 +121,7 @@ class UtilityBill
 
     grid([0,7], [0,11]).bounding_box do
       move_down 150
-      text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, MA, 00000", :size => 11
+      text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, USA 00000", :size => 11
     end
 
     grid([1,9],[1,11]).bounding_box do
@@ -131,11 +131,11 @@ class UtilityBill
         bounding_box([bounds.left+5, bounds.top-5], :width => bounds.width-10) do
         text "MESSAGES", :size => 15, :align => :center
         text "Your electric supplier is :", :style => :bold
-        text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, USA, 00000-0000" +
+        text "THE FLYING BLINKY LIGHTS COMPANY\nPO BOX 0000\nANY TOWN, USA 00000-0000" +
         "1-800-000-0000\nwww.aaaaa.com\n\n" +
-        "Have a question for us?\nClick on Customer Care on\nOur website at www.aaaaa.com\n\n" +
-        "No stampls. no checks, no fees! Enroll now to receive and pay your bill on the internet (www.aaaaa.com).\n\n" +
-        "MONTHLY MONEY-SAVER" +
+        "Have a question for us?\nClick on Customer Care on\nOur website at example.com.\n\n" +
+        "No stamps, no checks, no fees! Enroll now to receive and pay your bill on the internet.\n\n" +
+        "MONTHLY MONEY-SAVER\n" +
         "During hot summer months, close drapes to help keep our "+
         "unwanted heat and reduce your air conditioning costs. "+
         "Use ceiling or portable fans instead of room air "+
@@ -159,12 +159,9 @@ class UtilityBill
         t.cells.style(:size => 9, :font_style => :bold)
       end
 
-      move_down 10
+      move_down 40
 
-
-      formatted_text [{ :text => "One or more components have changed pricing this month, "+
-           "pricing may not print for that component.\n\n" +
-           "All charges are due as of your Statement Date. Any unpaid charges will be "+
+      formatted_text [{ :text => "All charges are due as of your Statement Date. Any unpaid charges will be "+
            "subject to interest as of your Statement Date, at the rate of 1.25% per month, "+
            "if not paid on or before ", :styles => [:italic] }, 
            { :text => "August 5, 2014. ", :styles => [:bold] },
@@ -193,7 +190,7 @@ class UtilityBill
       cells.style(:padding_top => 0, :padding_bottom => 1)
 
       column(0).style(:borders => [:left],  :width => width*0.4)
-      column(1).style(:borders => [],       :width => width*0.3)
+      column(1).style(:borders => [],       :width => width*0.3, :align => :right)
       column(2).style(:borders => [],       :width => width*0.15)
       column(3).style(:borders => [:right], :width => width*0.15, :align => :right)
       
@@ -222,7 +219,7 @@ data2 =
    ["Distribution per kwh", "491 kWh X $.055807", "$", "27.40"],
    ["Combined Public Benefits Charge", "491 kWh X $.011731", "$", "5.76"],
    ["Non-Bypassable FMCC per kwh", "425 kWh X $.009415", "$", "4.00"],
-   ["Non-Bypassable FMCC per kwh", "6 KWh x $.011769", "$", "0.78"],
+   ["Non-Bypassable FMCC per kwh", "6 kWh X $.011769", "$", "0.78"],
    ["Decoupling Adjustment", "491 kWh X $.002215", "$", "1.09"],
    [{ :content => "Total Delivery Charges", :colspan => 2 }, "$", "65.79"]]
 
