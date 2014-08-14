@@ -145,7 +145,7 @@ class UtilityBill
     end
 
     grid([2,9],[2,11]).bounding_box do
-      indent(10) do
+      inent(10) do
         image "delivery.jpg",  :height => bounds.height/2
         image "generation.jpg",:height => bounds.height/2
         stroke_bounds
