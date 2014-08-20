@@ -32,7 +32,7 @@ module Prawn
           component.new(self, params).draw
           stroke_bounds if border
         else
-          top, left, width, height = box
+          left, top, width, height = box
 
           top  = top >= 0 ? bounds.top - top : top*-1
           left = left >= 0 ? left : bounds.right - left*-1

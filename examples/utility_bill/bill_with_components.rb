@@ -19,33 +19,44 @@ module UtilityBill
   STYLES = { :gray_text => "666666" }
 end
 
+address = "Mike Johnson\n123 Any Street\nAny Town, US 00000"
+account_number = "012-0000345-6789"
+
 Prawn::Document.generate("bill.pdf") do
   draw :logo, 
     :box => [0.in, 0.in, 2.25.in, 0.75.in]
 
   draw :customer_address, 
-    :box => [1.in, 0.in, 2.in, 0.5.in],
-    :address  => "Mike Johnson\n123 Any Street\nAny Town, US 00000"
+    :box => [0.in, 1.in, 2.in, 0.5.in],
+    :address  => address
 
   draw :account_number_box,
-    :box => [0.in, 2.5.in, 1.8.in, 0.75.in],
-    :account_number => "012-0000345-6789"
+    :box => [2.5.in, 0.in, 1.8.in, 0.75.in],
+    :account_number => account_number
 
   draw :payment_due_box,
-    :box => [0.in, -3.1.in, 3.1.in, 0.75.in],
+    :box => [-3.1.in, 0.in, 3.1.in, 0.75.in],
     :due_date   => "07/04/14",
     :amount_due => "$110.00"
 
   draw :check_payable,
-    :box => [0.8.in, -3.1.in, 3.1.in, 1.in]
+    :box => [-3.1.in, 0.8.in, 3.1.in, 1.in]
 
   draw :cut_line,
-    :box => [3.0.in, 0.in, bounds.width, 0.25.in]
+    :box => [0.in, 3.0.in, bounds.width, 0.25.in]
+
+  draw :account_details,
+    :box => [0.in, 3.25.in, bounds.width-1.5.in, 1.in],
+    :customer_name_key => "JOHNSON",
+    :address => address,
+    :account_number => account_number
 
   draw :charts, 
-    :box => [-3.in, -1.5.in, 1.5.in, 3.in],
+    :box => [-1.5.in, -3.in, 1.5.in, 3.in],
     :generation_chart => "generation.jpg", 
     :delivery_chart   => "delivery.jpg"
+
+
 end
 
 `open -g bill.pdf`
