@@ -9,7 +9,7 @@ Prawn::Component.define(:messages) do
 
   indent(0.1.in, 0.1.in) do
     text "Your electric supplier is:", :style => :bold, :size => 8
-    text params[:company_address], :size => 6
+    text bill.company_address, :size => 6
     text params[:company_phone],   :size => 6
     text params[:company_website], :size => 6
 

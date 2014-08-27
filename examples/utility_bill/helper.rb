@@ -18,6 +18,10 @@ module Prawn
     end
 
     module DocumentExtensions
+      def data_source(name, &b)
+        define_singleton_method(name, &b)
+      end
+
       # consider adding support for padding
       # and if we ever allow dynamic rendering, margins
       def draw(component, params={})

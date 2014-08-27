@@ -13,5 +13,5 @@
 require_relative "../helper"
 
 Prawn::Component.define(:customer_address) do
-  text(params[:address], :size => 11)
+  text(bill.customer_address, :size => 11)
 end

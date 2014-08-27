@@ -14,7 +14,7 @@ row_height = 0.35.in
 
 Prawn::Component.instance_eval do
   define(:account_number_box) do
-    data = [["Account Number"], [params[:account_number]]]
+    data = [["Account Number"], [bill.account_number]]
 
     table(data, :width => bounds.width) do |t|
       t.row(0).style(common_header_style)
@@ -24,7 +24,7 @@ Prawn::Component.instance_eval do
 
   define(:payment_due_box) do
     data = [["Payment Due Date", "Amount Now Due"],
-            [params[:due_date], params[:amount_due]]]
+            [bill.due_date, bill.amount_due]]
 
     table(data, :width => bounds.width) do |t|
       t.row(0).style(common_header_style)

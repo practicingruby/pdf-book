@@ -3,7 +3,7 @@ require_relative "../helper"
 ## FIXME: Check measurements and make as generic as possible,
 # reduce duplication.
 
-module UtilityBill
+class UtilityBill
   class Charges
     include Prawn::Component
 
