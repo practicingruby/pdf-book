@@ -7,9 +7,9 @@ Prawn::Component.define(:usage) do
 
   usage_data = [["Meter", "Service Period", "Last Meter Reading", "Current Meter Reading", 
                  "Multiplier", "Kilowatt hours"],
-                [params[:meter_id], params[:service_period], params[:last_meter_reading],
-                 params[:current_meter_reading], params[:multiplier], 
-                 "#{params[:kwh_used]} kWh"]]
+                [bill.meter_id, bill.service_period, bill.last_meter_reading,
+                 bill.current_meter_reading, bill.multiplier, 
+                 "#{bill.kwh_used} kWh"]]
 
   table(usage_data) { |t| t.cells.style(:size => 8) }
 end

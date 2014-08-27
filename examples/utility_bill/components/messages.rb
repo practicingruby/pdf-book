@@ -10,12 +10,12 @@ Prawn::Component.define(:messages) do
   indent(0.1.in, 0.1.in) do
     text "Your electric supplier is:", :style => :bold, :size => 8
     text bill.company_address, :size => 6
-    text params[:company_phone],   :size => 6
-    text params[:company_website], :size => 6
+    text bill.company_phone,   :size => 6
+    text bill.company_website, :size => 6
 
     move_down 0.1.in
 
-    text params[:messages], :size => 6
+    text bill.messages, :size => 6
   end
 
   # FIXME: We should find a way to prevent the need for explicit mask here.

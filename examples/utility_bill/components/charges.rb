@@ -10,8 +10,8 @@ class UtilityBill
     def draw
       box_width = bounds.width
 
-      table params[:generation_charges] do |t|
-        apply_common_styling(t, params[:generation_charges].size)
+      table bill.generation_charges do |t|
+        apply_common_styling(t, bill.generation_charges.size)
 
         # consists of a single header cell
         t.row(0).style(:borders => [:left, :top, :right])
@@ -19,13 +19,13 @@ class UtilityBill
       
       move_down 0.1.in
 
-      table params[:delivery_charges] do |t|
-        apply_common_styling(t, params[:delivery_charges].size)
+      table bill.delivery_charges do |t|
+        apply_common_styling(t, bill.delivery_charges.size)
       end
 
       move_down 0.05.in
 
-      table [["Total New Charges", "$", params[:new_charge_total]]], :width => bounds.width do
+      table [["Total New Charges", "$", bill.new_charges_total]], :width => bounds.width do
         cells.style(:borders => [], :font_style => :bold, :size => 9)
         column(0).width = box_width * 0.7
         column(1).width = box_width * 0.2
@@ -34,7 +34,7 @@ class UtilityBill
 
       move_down 0.05.in
 
-      table [["Amount Now Due: $", "165.36"]], :position => :right do |t|
+      table [["Amount Now Due: $", bill.amount_due]], :position => :right do |t|
         t.column(0).style(:borders => [:top, :left, :bottom],)
         t.cells.style(:border_color => "999999")
         # FIXME: MAGIC NUMBER!

@@ -18,8 +18,11 @@ module Prawn
     end
 
     module DocumentExtensions
-      def data_source(name, &b)
-        define_singleton_method(name, &b)
+      def data_source(name)
+        define_singleton_method(name) do
+          @data_source ||= {}
+          @data_source[name] ||= yield
+        end
       end
 
       # consider adding support for padding

@@ -2,8 +2,8 @@ require_relative "../helper"
 
 Prawn::Component.define(:charts) do
   indent(bounds.width*0.1, bounds.width*0.1) do
-    image params[:delivery_chart],   :height => bounds.height / 2
-    image params[:generation_chart], :height => bounds.height / 2
+    image bill.delivery_chart,   :height => bounds.height / 2
+    image bill.generation_chart, :height => bounds.height / 2
   end
 
   # FIXME: We should find a way to prevent the need for explicit mask here.
