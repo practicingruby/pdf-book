@@ -45,6 +45,10 @@ module Prawn
           left = left >= 0 ? left : bounds.right - left*-1
 
           bounding_box([left, top], :width => width, :height => height) do
+            bounds.define_singleton_method(:move_past_bottom) do
+              raise Prawn::Errors::CannotFit
+            end
+
             component.new(self, params).draw
           stroke_bounds if border
           end
