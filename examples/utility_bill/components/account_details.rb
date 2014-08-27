@@ -13,13 +13,17 @@ Prawn::Component.define(:account_details) do
     move_up font.line_gap # this is a hack, because by default Prawn inserts 
                           # a line_gap space at the top of table cells.
                           # There is a ticket that complains about it.
-    
-    raise "Remove hardcoded values"
-     
-    table [["Account Number:", params[:account_number]],["Meter Number:","00020003"],
-    ["Trans and Dist Rate:","R - Residential"],["Generation Rate:","Standard Service"],
-    ["Billing Period:","5/6/14 - 6/04/14"],["Statement Date:","6/06/14"],
-    ["Next Meter Reading (on or about):","7/07/14"]] do |t|
+    data = [
+      ["Account Number:", params[:account_number]],
+      ["Meter Number:", params[:meter_number]],
+      ["Trans and Dist Rate:", params[:trans_and_dist_rate]],
+      ["Generation Rate:", params[:generation_rate]],
+      ["Billing Period:",params[:billing_period]],
+      ["Statement Date:",params[:statement_date]],
+      ["Next Meter Reading (on or about):", params[:next_meter_reading]]
+    ]
+
+    table(data) do |t|
       t.cells.style(:borders => [], :padding_bottom => 0.5, :padding_top => 0, :size => 8)
       t.column(0).style(:align => :right)
       t.column(1).style(:align => :left)
