@@ -8,8 +8,6 @@ class UtilityBill
     include Prawn::Component
 
     def draw
-      box_width = bounds.width
-
       table bill.generation_charges do |t|
         apply_common_styling(t, bill.generation_charges.size)
 
@@ -25,11 +23,11 @@ class UtilityBill
 
       move_down 0.05.in
 
-      table [["Total New Charges", "$", bill.new_charges_total]], :width => bounds.width do
-        cells.style(:borders => [], :font_style => :bold, :size => 9)
-        column(0).width = box_width * 0.7
-        column(1).width = box_width * 0.2
-        column(2).align = :right
+      table [["Total New Charges", "$", bill.new_charges_total]], :width => bounds.width do |t|
+        t.cells.style(:borders => [], :font_style => :bold, :size => 9)
+        t.column(0).width = bounds.width * 0.7
+        t.column(1).width = bounds.width * 0.2
+        t.column(2).align = :right
       end
 
       move_down 0.05.in
@@ -38,7 +36,7 @@ class UtilityBill
         t.column(0).style(:borders => [:top, :left, :bottom],)
         t.cells.style(:border_color => "999999")
         # FIXME: MAGIC NUMBER!
-        t.column(1).style(:borders => [:top, :right, :bottom], :width => box_width*0.26, 
+        t.column(1).style(:borders => [:top, :right, :bottom], :width => bounds.width*0.26, 
                           :align => :right, :size => 10)
         t.cells.style(:size => 10, :font_style => :bold)
       end

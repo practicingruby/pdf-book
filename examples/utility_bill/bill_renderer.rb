@@ -36,7 +36,7 @@ Prawn::Document.generate("bill.pdf") do
     :box => [0.in, 4.5.in, bounds.width - 2.in, 3.5.in]
 
   draw :messages,
-    :box => [-1.75.in, -6.25.in, 1.75.in, 3.in]
+    :box => [-1.75.in, -6.25.in, 1.75.in, 3.0.in]
 
   draw :charts, 
     :box => [-1.75.in, -3.in, 1.75.in, 3.in]
