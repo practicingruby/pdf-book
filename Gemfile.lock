@@ -11,6 +11,7 @@ GEM
   specs:
     pdf-core (0.2.5)
     prawn-table (0.1.0)
+    rake (10.3.2)
     ttfunk (1.2.0)
 
 PLATFORMS
@@ -19,3 +20,4 @@ PLATFORMS
 DEPENDENCIES
   prawn!
   prawn-table
+  rake
