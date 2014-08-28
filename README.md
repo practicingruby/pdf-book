@@ -1,6 +1,6 @@
 # Creating PDF in Ruby
 
-This repository contains code samples that will eventually become part of the
+This repository contains code samples that will become part of the
 "Creating PDF in Ruby" book. Each example models a practical PDF generation
 use case, implemented using the Prawn PDF toolkit.
 
