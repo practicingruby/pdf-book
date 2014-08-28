@@ -38,7 +38,7 @@ Support is not limited to bug reports: I also want to hear about anything
 that looks confusing, does not work as expected, etc.
 
 Although I can't promise I'll be able to help, I'm also happy to discuss
-issues related to adapting these code samples to use within your own projects.
+issues related to adapting these code samples for use within your own projects.
 
 If you'd rather discuss things privately, feel free to send an email to
 gregory@practicingruby.com.
