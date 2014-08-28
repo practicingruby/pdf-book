@@ -83,5 +83,3 @@ class FormLetter::Parser
     @rewrites[key] = block
   end
 end
-
-

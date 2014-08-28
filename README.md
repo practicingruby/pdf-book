@@ -16,3 +16,17 @@ So far, the following use cases have been implemented:
 
 For a list of use cases we're interested in covering but have not implemented
 yet, see `IDEAS.md`.
+
+## Prerequisites
+
+The code samples in this repository are meant to work with the latest
+stable version of Ruby.
+
+We make use of Bundler for handling our dependencies, which may at times
+track unreleased development snapshots of Prawn. To install all necessary
+dependencies, run `bundle install`.
+
+Each example project also has its own `README.md` file, so be sure to read
+those for project-specific requirements. Most of the time, you will
+simply need to run `rake` to execute the code samples, and `rake console`
+to run an `IRB` session with all necessary code loaded.

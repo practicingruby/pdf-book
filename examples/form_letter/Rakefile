@@ -1,11 +1,11 @@
 desc "Generates a Utility Bill PDF"
 
 task :console do
-  sh "irb -rbill_renderer"
+  sh "irb -r./form_letter"
 end
 
 task :build do
-  sh "ruby bill_renderer.rb"
+  sh "ruby form_letter.rb"
 end
 
 task :test do
