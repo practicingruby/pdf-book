@@ -30,3 +30,15 @@ Each example project also has its own `README.md` file, so be sure to read
 those for project-specific requirements. Most of the time, you will
 simply need to run `rake` to execute the code samples, and `rake console`
 to run an `IRB` session with all necessary code loaded.
+
+## Problems and Questions
+
+Please use the issue tracker to contact me about any issues you run into.
+Support is not limited to bug reports: I also want to hear about anything
+that looks confusing, does not work as expected, etc.
+
+Although I can't promise I'll be able to help, I'm also happy to discuss
+issues related to adapting these code samples to use within your own projects.
+
+If you'd rather discuss things privately, feel free to send an email to
+gregory@practicingruby.com.
