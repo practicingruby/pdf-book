@@ -12,4 +12,5 @@ APPENDICES:
 * Prawn hacking guide
 * PDF File format overview
 * PDFTk?
+* Webkit-based HTML to PDF?
 * Testing PDF
