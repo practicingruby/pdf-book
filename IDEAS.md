@@ -1,4 +1,3 @@
-* Supermarket flyer
 * Magazine layout
 * Conference badges
 * Postcards
