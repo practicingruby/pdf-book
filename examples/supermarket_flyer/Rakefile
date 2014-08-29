@@ -1,0 +1,15 @@
+desc "Generates a Utility Bill PDF"
+
+task :console do
+  sh "irb -r./flyer"
+end
+
+task :build do
+  sh "ruby flyer.rb"
+end
+
+task :test do
+  abort "No tests yet! Fix me please..."
+end
+
+task :default => :build

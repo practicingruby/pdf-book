@@ -14,6 +14,10 @@ So far, the following use cases have been implemented:
 * Dynamic form letters (see `examples/form_letter`)
 * Utility bill (see `examples/utility_bill` )
 
+Additionally, following sample projects are under construction:
+
+* Supermarket flyer (see `examples/supermarket_flyer`)
+
 For a list of use cases we're interested in covering but have not implemented
 yet, see `IDEAS.md`.
 
