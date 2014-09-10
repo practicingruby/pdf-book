@@ -50,6 +50,15 @@ module Prawn
         if box.nil?
           component.new(self, params).draw
           stroke_bounds if border
+        elsif box.kind_of?(Prawn::Document::GridBox) # FIXME: Massive duplication + explicit type check
+          box.bounding_box do
+            bounds.define_singleton_method(:move_past_bottom) do
+              raise Prawn::Errors::CannotFit
+            end
+
+            component.new(self, params).draw
+            stroke_bounds if border
+          end
         else
           left, top, width, height = box
 
@@ -62,7 +71,7 @@ module Prawn
             end
 
             component.new(self, params).draw
-          stroke_bounds if border
+            stroke_bounds if border
           end
         end
       end
