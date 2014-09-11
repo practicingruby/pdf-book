@@ -17,14 +17,40 @@ class Flyer
         # FIXME: ASPECT RATIO!
         # Should only need a couple types, 
         # like square and 2x1 rectangle
-        image "images/#{name}.jpg",
-          :width => bounds.width, :height => bounds.height
+        float do
+          image "images/#{name}.jpg",
+            :width => bounds.width, :height => bounds.height
+        end
 
-          mask(:line_width, :stroke_color) do
-            stroke_color "333333"
-            line_width 12
-            stroke_bounds
+        transparent(0.5) do
+          fill_rectangle bounds.top_left, bounds.width, 24
+        end
+
+
+        mask(:fill_color, :line_width) do
+          fill_color "ffffff"
+          line_width 0.5
+
+          move_down(5)
+
+          text_rendering_mode(:fill_stroke) do
+            text name.upcase, :size => 16, :align => :center
+
+            move_cursor_to bounds.bottom + 30
+            
+            indent(0, 10) do
+              text "$1.99/lb", :size => 24, :align => :right
+            end
+
           end
+        end
+
+        mask(:line_width, :stroke_color) do
+          stroke_color "333333"
+          line_width 2
+          stroke_bounds
+        end
+
       end
     end
   end
@@ -36,8 +62,8 @@ if __FILE__ == $PROGRAM_NAME
   flyer.update do
     # TODO: Do we need a higher level API than this?
     
-    draw_products [["avocados", [0,0], [1,3]],
-                   ["napa",     [2,0], [3,3]],
+    draw_products [["napa", [0,0], [1,3]],
+                   ["avocados", [2,0], [3,3]],
                    ["potatos",  [0,4], [3,7]],
                    ["garlic",   [4,0], [5,1]],
                    ["bittermelon",[4,2], [5,3]],
