@@ -2,8 +2,11 @@
 * Conference badges
 * Postcards
 * Labels (of some sort)
-* Simple invoice
+* Simple invoice (David's receipt?)
 * Vector drawing?
+
+* Something w. complex header/footer logic)
+(e.g. https://groups.google.com/forum/#!topic/prawn-ruby/_KIg4Ih8TdU)
 
 APPENDICES:
 
