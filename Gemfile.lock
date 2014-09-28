@@ -1,18 +1,18 @@
 GIT
   remote: https://github.com/prawnpdf/prawn.git
-  revision: 829d3d5ecf94eec675944785aed3e5e788bb0e93
+  revision: 9cbd452396d529587640486cb60508f206ceb374
   specs:
-    prawn (1.3.0)
-      pdf-core (~> 0.2.5)
-      ttfunk (~> 1.2.0)
+    prawn (1.4.0)
+      pdf-core (~> 0.4.0)
+      ttfunk (~> 1.4.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    pdf-core (0.2.5)
-    prawn-table (0.1.0)
+    pdf-core (0.4.0)
+    prawn-table (0.2.0)
     rake (10.3.2)
-    ttfunk (1.2.0)
+    ttfunk (1.4.0)
 
 PLATFORMS
   ruby
