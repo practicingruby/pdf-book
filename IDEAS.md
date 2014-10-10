@@ -1,3 +1,6 @@
+WRITE AN EXAMPLE MANIFEST THAT LISTS OUT EXAMPLES BY FUNCTION LIKE THIS:
+https://github.com/jnunemaker/httparty/tree/master/examples
+
 * Magazine layout
 * Conference badges
 * Postcards
