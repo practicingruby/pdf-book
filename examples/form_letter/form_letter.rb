@@ -1,32 +1,12 @@
 require_relative "helper"
 
+require_relative "letter_data"
+
 if __FILE__ == $PROGRAM_NAME
-  ### Parse the sections of the document into a params dictionary
-
-  parser = FormLetter::Parser.new
-
-  parser.rewrite(:emails, :deadline) 
-
-  parser.rewrite(:date) do 
-    Date.today.strftime("%b %d, %Y")
-  end
-
-  parser.rewrite(:year) do
-    (Date.today.year - 1).to_s
-  end
-
-  parser.rewrite(:customer_name) do
-    ["Gregory", "Brad", "James", "Daniel", "Jonathan" ].sample 
-  end
-
-  letter = File.read("fields.txt") + Text.unwrap(File.read("letter.txt"))
-  params = parser.parse(letter)
-
   ## Set relevant formatting for different sections
-
   formatting = {
     :company            => { :styles => [:bold] },
-    :company_subtext    => { :size => 8 },
+    :company_subheading    => { :size => 8 },
     :company_header     => { :align => :center, :leading => 4, :color => "555555" },
     :company_address    => { :align => :center, :color => "555555", :size => 10 },
     :from               => { :align => :left, :color => "555555", :size => 10 },
@@ -35,9 +15,7 @@ if __FILE__ == $PROGRAM_NAME
     :footer             => { :size => 8, :color => "555555" }
   }
 
-  ### Generate the letter
-
-  letter = FormLetter.new(params, formatting)
+  letter = FormLetter.new(LetterData.new, formatting)
 
   letter.update do
     font "Helvetica"
@@ -48,7 +26,7 @@ if __FILE__ == $PROGRAM_NAME
     end
 
     header_box(:center) do
-      text_group [:company, :company_subtext], :company_header
+      text_group [:company, :company_subheading], :company_header
 
       text(:company_address)
     end
