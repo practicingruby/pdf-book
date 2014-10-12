@@ -6,12 +6,26 @@ class Flyer
     # NOTE: This is a little clumsy because the Official API
     # recommends defining the document() method. But it's
     # definitely more concise. Should we encourage this practice?
-    @document = Prawn::Document.new(:margin => 0)
+    @document = Prawn::Document.new(:margin => 20, 
+      :page_size => [12.75.in, 19.8.in])
 
-    define_grid(:columns => 8, :rows => 10)
+    define_grid(:columns => 8, :rows => 12, :gutter => 15)
   end
 
   def draw_products(products)
+    grid([0,0],[1,7]).bounding_box do
+      line_width 4
+      stroke_bounds
+      fill_color "ffff00"
+      fill_rectangle bounds.top_left, bounds.width, bounds.height
+      fill_color "000000"
+      text "<b>EEEERVRYBODY's Market</b>\n"+
+           "<font size='24'>A place where EEEERVRYBODY is welcome</font>", 
+        :align => :center, :size => 50, :leading => 15,
+        :valign => :center, :inline_format => true
+
+    end
+
     products.each do |name, *coords|
       grid(*coords).bounding_box do
         # FIXME: ASPECT RATIO!
@@ -22,8 +36,11 @@ class Flyer
             :width => bounds.width, :height => bounds.height
         end
 
-        transparent(0.5) do
-          fill_rectangle bounds.top_left, bounds.width, 24
+        mask(:fill_color) do
+          fill_color "ffffff"
+          transparent(0.7) do
+            fill_rectangle bounds.top_left, bounds.width, 24
+          end
         end
 
 
@@ -33,13 +50,14 @@ class Flyer
 
           move_down(5)
 
+          text name.upcase, :size => 18, :align => :center, :color => "000000"
+
           text_rendering_mode(:fill_stroke) do
-            text name.upcase, :size => 16, :align => :center
 
             move_cursor_to bounds.bottom + 30
             
             indent(0, 10) do
-              text "$1.99/lb", :size => 24, :align => :right
+              text "$1.99/lb", :size => 32, :align => :right, :style => :bold
             end
 
           end
@@ -62,23 +80,23 @@ if __FILE__ == $PROGRAM_NAME
   flyer.update do
     # TODO: Do we need a higher level API than this?
     
-    draw_products [["napa", [0,0], [1,3]],
-                   ["avocados", [2,0], [3,3]],
-                   ["potatos",  [0,4], [3,7]],
-                   ["garlic",   [4,0], [5,1]],
-                   ["bittermelon",[4,2], [5,3]],
-                   ["kiwi", [4,4], [5,5]],
-                   ["limes",[4,6], [5,7]],
-                   ["eggplant", [6,0], [6,1]],
-                   ["peaches", [6,2], [6,3]],
-                   ["plantains", [6,4], [6,5]],
-                   ["onions", [6,6], [6,7]],
-                   ["chilis", [7,0], [7,1]],
-                   ["bellpepper", [7,2], [7,3]],
-                   ["mushrooms", [7,4], [7,5]],
-                   ["shallots", [7,6], [7,7]],
-                   ["blueberries", [8,0], [9,3]],
-                   ["apples", [8,4], [9,7]]]
+    draw_products [["napa", [2,0], [3,3]],
+                   ["avocados", [4,0], [5,3]],
+                   ["potatos",  [2,4], [5,7]],
+                   ["garlic",   [6,0], [7,1]],
+                   ["bittermelon",[6,2], [7,3]],
+                   ["kiwi", [6,4], [7,5]],
+                   ["limes",[6,6], [7,7]],
+                   ["eggplant", [8,0], [8,1]],
+                   ["peaches", [8,2], [8,3]],
+                   ["plantains", [8,4], [8,5]],
+                   ["onions", [8,6], [8,7]],
+                   ["chilis", [9,0], [9,1]],
+                   ["bellpepper", [9,2], [9,3]],
+                   ["mushrooms", [9,4], [9,5]],
+                   ["shallots", [9,6], [9,7]],
+                   ["blueberries", [10,0], [11,3]],
+                   ["apples", [10,4], [11,7]]]
   end
 
   flyer.save_as("flyer.pdf")
