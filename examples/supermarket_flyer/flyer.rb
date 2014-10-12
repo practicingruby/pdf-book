@@ -45,7 +45,7 @@ class Flyer
 
         mask(:fill_color, :line_width) do
           fill_color "ffffff"
-          line_width 0.5
+          line_width 1
 
           move_down(5)
 
