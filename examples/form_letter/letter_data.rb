@@ -52,6 +52,8 @@ class LetterData
   end
 
   def body
-    ERB.new(Text.unwrap(File.read("letter.txt")), 0, "-").result(binding)
+    text = File.read("#{File.dirname(__FILE__)}/letter.erb")
+
+    ERB.new(Text.unwrap(text), 0, "-").result(binding)
   end
 end
