@@ -26,7 +26,7 @@ class Flyer
 
     end
 
-    products.each do |name, *coords|
+    products.each do |name, price, *coords|
       grid(*coords).bounding_box do
         # FIXME: ASPECT RATIO!
         # Should only need a couple types, 
@@ -43,7 +43,6 @@ class Flyer
           end
         end
 
-
         mask(:fill_color, :line_width) do
           fill_color "ffffff"
           line_width 0.5
@@ -57,7 +56,7 @@ class Flyer
             move_cursor_to bounds.bottom + 30
             
             indent(0, 10) do
-              text "$1.99/lb", :size => 32, :align => :right, :style => :bold
+              text "$#{price}/lb", :size => 32, :align => :right, :style => :bold
             end
 
           end
@@ -80,23 +79,23 @@ if __FILE__ == $PROGRAM_NAME
   flyer.update do
     # TODO: Do we need a higher level API than this?
     
-    draw_products [["napa", [2,0], [3,3]],
-                   ["avocados", [4,0], [5,3]],
-                   ["potatos",  [2,4], [5,7]],
-                   ["garlic",   [6,0], [7,1]],
-                   ["bittermelon",[6,2], [7,3]],
-                   ["kiwi", [6,4], [7,5]],
-                   ["limes",[6,6], [7,7]],
-                   ["eggplant", [8,0], [8,1]],
-                   ["peaches", [8,2], [8,3]],
-                   ["plantains", [8,4], [8,5]],
-                   ["onions", [8,6], [8,7]],
-                   ["chilis", [9,0], [9,1]],
-                   ["bellpepper", [9,2], [9,3]],
-                   ["mushrooms", [9,4], [9,5]],
-                   ["shallots", [9,6], [9,7]],
-                   ["blueberries", [10,0], [11,3]],
-                   ["apples", [10,4], [11,7]]]
+    draw_products [["napa", 1.99, [2,0], [3,3]],
+                   ["avocados", 1.99, [4,0], [5,3]],
+                   ["potatos", 0.99, [2,4], [5,7]],
+                   ["garlic", 1.99,  [6,0], [7,1]],
+                   ["bittermelon", 1.99, [6,2], [7,3]],
+                   ["kiwi", 3.99, [6,4], [7,5]],
+                   ["limes",0.99, [6,6], [7,7]],
+                   ["eggplant", 1.99, [8,0], [8,1]],
+                   ["peaches", 1.99, [8,2], [8,3]],
+                   ["plantains", 1.99, [8,4], [8,5]],
+                   ["onions", 1.99, [8,6], [8,7]],
+                   ["chilis", 1.99, [9,0], [9,1]],
+                   ["bellpepper", 1.99, [9,2], [9,3]],
+                   ["mushrooms", 1.99, [9,4], [9,5]],
+                   ["shallots", 1.99, [9,6], [9,7]],
+                   ["blueberries", 42.99, [10,0], [11,3]],
+                   ["apples", 1.99, [10,4], [11,7]]]
   end
 
   flyer.save_as("flyer.pdf")
