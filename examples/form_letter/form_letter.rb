@@ -6,7 +6,7 @@ if __FILE__ == $PROGRAM_NAME
   ## Set relevant formatting for different sections
   formatting = {
     :company            => { :styles => [:bold] },
-    :company_subheading    => { :size => 8 },
+    :company_subheading => { :size => 8 },
     :company_header     => { :align => :center, :leading => 4, :color => "555555" },
     :company_address    => { :align => :center, :color => "555555", :size => 10 },
     :from               => { :align => :left, :color => "555555", :size => 10 },
