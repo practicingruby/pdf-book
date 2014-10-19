@@ -3,18 +3,18 @@ require_relative "../helper"
 class FormLetter
   include Prawn::View
    
-  def initialize(params, styles)
-    @params   = params
+  def initialize(data, styles)
+    @data   = data
     @styles   = styles
   end
 
-  def text(content_key)
-    document.text(@params.send(content_key).strip + "\n",
-                  @styles.fetch(content_key, {}))
+  def text_snippet(content_key)
+    text(@data.send(content_key).strip + "\n",
+         @styles.fetch(content_key, {}))
   end
 
-  def text_group(fragments, style_key=nil)
-    document.formatted_text(
+  def text_snippet_group(fragments, style_key=nil)
+    formatted_text(
       fragments.map { |e| fragment(e) },
       @styles.fetch(style_key, {}))
   end
@@ -32,7 +32,7 @@ class FormLetter
   private
 
   def fragment(content_key)
-    { :text => @params.send(content_key).strip + "\n" }
+    { :text => @data.send(content_key).strip + "\n" }
     .merge(@styles.fetch(content_key, {}))
   end
 end
