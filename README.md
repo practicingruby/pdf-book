@@ -17,6 +17,7 @@ So far, the following use cases have been implemented:
 Additionally, following sample projects are under construction:
 
 * Supermarket flyer (see `examples/supermarket_flyer`)
+* Receipts (see `example/receipt`) 
 
 For a list of use cases we're interested in covering but have not implemented
 yet, see `IDEAS.md`.
