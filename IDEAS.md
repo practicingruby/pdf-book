@@ -7,6 +7,7 @@ https://github.com/jnunemaker/httparty/tree/master/examples
 * Labels (of some sort)
 * Simple invoice (David's receipt?)
 * Vector drawing?
+* Internationalized text (w. fallback fonts) (Maybe Chinese?)
 
 * Something w. complex header/footer logic)
 (e.g. https://groups.google.com/forum/#!topic/prawn-ruby/_KIg4Ih8TdU)
