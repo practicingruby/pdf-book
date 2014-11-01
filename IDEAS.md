@@ -1,8 +1,8 @@
 WRITE AN EXAMPLE MANIFEST THAT LISTS OUT EXAMPLES BY FUNCTION LIKE THIS:
 https://github.com/jnunemaker/httparty/tree/master/examples
 
-* Magazine layout
-* Conference badges
+* Magazine layout (something w. text wrapping around an image?)
+* Conference badges, certificates, membership cards, etc.
 * Postcards
 * Labels (of some sort)
 * Simple invoice (David's receipt?)
@@ -11,6 +11,7 @@ https://github.com/jnunemaker/httparty/tree/master/examples
 
 * Something w. complex header/footer logic)
 (e.g. https://groups.google.com/forum/#!topic/prawn-ruby/_KIg4Ih8TdU)
+
 
 APPENDICES:
 
