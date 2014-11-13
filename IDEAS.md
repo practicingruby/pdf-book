@@ -4,6 +4,7 @@ https://github.com/jnunemaker/httparty/tree/master/examples
 * Magazine layout (something w. text wrapping around an image?)
 * Conference badges, certificates, membership cards, etc.
 * Postcards
+* Calendar
 * Labels (of some sort)
 * Simple invoice (David's receipt?)
 * Vector drawing?
